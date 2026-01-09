@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Color Quantization</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 41px;
+        }
+        img {
+            width: 300px;
+            margin: 10px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Image Color Quantization</h2>
+<form method="POST" enctype="multipart/form-data">
+    <input type="file" name="image"><br><br>
+
+    <label>Number of colors (K):</label>
+    <input type="number" name="k" min="2" max="25" value="{{k}}" required><br><br>
+
+    <button type="submit">Apply</button>
+</form>
+
+{% if original %}
+    <h3>Result (K = {{k}})</h3>
+<div>
+    <img src="{{ original }}">
+    <img src="{{ compressed }}"><br><br>
+
+    <a href="{{ compressed }}" download>
+        <button style="padding:10px 20px;">Download</button>
+    </a>
+</div>
+{% endif %}
+</body>
+</html>
