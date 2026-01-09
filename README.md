@@ -1,0 +1,1 @@
+Image color Quantization Web App
